@@ -1,0 +1,13 @@
+{
+  "name": "einkmanager-backend",
+  "version": "0.0.1",
+  "description": "Backend for E-Ink Manager",
+  "main": "index.js",
+  "repository": "https://github.com/jkbit0/einkmanager-backend.git",
+  "author": "JKBit <jonaskaz2009@outlook.de>",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.21.2",
+    "nodemon": "^3.1.9"
+  }
+}
