@@ -14,6 +14,7 @@ let i = 0;
 let lastdata;
 let SendIntervalTimout = 1;
 let SendInterval;
+let IntervalRunning;
 
 startSendInvterval();
 
@@ -59,6 +60,7 @@ function SendSlideData() {
  */
 function stopSendInverval() {
   clearInterval(SendInterval);
+  IntervalRunning = false
 }
 
 /**
@@ -69,6 +71,7 @@ function startSendInvterval() {
   SendInterval = setInterval(function () {
     SendSlideData();
   }, SendIntervalTimout * 1000);
+  IntervalRunning = true
 }
 
 // API endpoint to update the slide queue
@@ -96,6 +99,10 @@ app.get("/sendinterval/start", (req, res) => {
 app.get("/sendinterval/stop", (req, res) => {
   stopSendInverval();
   res.send("Stopped E-INK Updater");
+});
+
+app.get("/sendinterval/status", (req, res) => {
+  res.send(IntervalRunning);
 });
 
 // Start the Express server
